@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit "{{ tag['epc'] }}" {% endblock %}</h1>
+<div class="container">
+  <form method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="epc">EPC</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="epc" placeholder="EPC" value="{{ request.form['epc'] or tag['epc'] }}"></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="title" placeholder="Tag title"
+          value="{{ request.form['title'] or tag['title'] }}"></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="comment">Comment</label>
+      </div>
+      <div class="col-75">
+        <textarea name="comment" placeholder="Comment" rows="15"
+          cols="60">{{ request.form['comment'] or tag['comment'] }}</textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" formaction="{{ url_for('delete', epc=tag['epc']) }}" value="Delete" onclick="return confirm('Are you sure you want to delete this tag?')">
+      <input style="margin-right: 2px;" type="submit">
+    </div>
+  </form>
+</div>
+
+{% endblock %}

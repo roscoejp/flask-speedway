@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block nav_create %}active{% endblock %}
+{% block content %}
+<h1>{% block title %} Add a New Tag {% endblock %}</h1>
+<div class="container">
+  <form method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="epc">EPC</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="epc" placeholder="EPC" value="{{ request.form['epc'] }}"></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="title">Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="title" placeholder="Tag title" value="{{ request.form['title'] }}"></input>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="comment">Comment</label>
+      </div>
+      <div class="col-75">
+        <textarea name="comment" placeholder="Comment" rows="15" cols="60">{{ request.form['comment'] }}</textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="submit"></button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block nav_home %}active{% endblock %}
+{% block content %}
+<h1>{% block title %} Tags {% endblock %}</h1>
+<div style="overflow-x:auto;">
+  <table>
+    <tr>
+      <th>Created</th>
+      <th>EPC</th>
+      <th>Title</th>
+      <th>Comment</th>
+      <th>Original Register</th>
+      <th>Last Register</th>
+      <th style="text-align: center;">Actions</th>
+    </tr>
+    {% for tag in tags %}
+    <tr>
+      <td>{{ tag['created'] }}</td>
+      <td>{{ tag['epc'] }}</td>
+      <td>{{ tag['title'] }}</td>
+      <td>{{ tag['comment'] }}</td>
+      <td>{{ tag['original_register'] }}</td>
+      <td>{{ tag['last_register'] }}</td>
+      <td>
+        <form style="width:50%; margin: auto;" >
+          <input class="center" type="submit" value=" Edit " formaction="{{ url_for('edit', epc=tag['epc']) }}">
+          <input style="margin-right: 2px;" class="center" type="submit" value="Delete" formaction="{{ url_for('delete', epc=tag['epc']) }}" formmethod="POST"
+            onclick="return confirm('Are you sure you want to delete this tag?')">
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
