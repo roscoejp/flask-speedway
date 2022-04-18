@@ -23,13 +23,12 @@ Maybe I'll revisit this at some point maybe I won't.
 
 ## Configuration
 
-- [.flaskenv](./.flaskenv) contains Flask configuration values
-    - `FLASK_APP`
-    - `FLASK_ENV`
 - [.env](./.env) can contain any other env variables:
     - `SECRET_KEY`
     - `PORT`
     - `HOST`
+    - `FLASK_APP`
+    - `FLASK_ENV`
 
 ## Other files
 
