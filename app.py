@@ -11,8 +11,6 @@ load_dotenv()
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['HOST'] = os.environ.get('HOST')
-app.config['PORT'] = os.environ.get('PORT')
 
 # Functions
 def get_db_connection():
